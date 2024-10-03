@@ -23,11 +23,9 @@ os dados e permitir o acesso apenas com as credenciais corretas. Também deverá
 Prioridade: Alta
 
   3. Requisito 
-Nome: Cadastro de Livros -
-Descrição: O aplicativo deverá permitir que os usuários adicionem novos livros ao seu acervo, fornecendo informações
-como título, autor, gênero, data de publicação e número de páginas. As informações deverão ser armazenadas no banco de dados do 
-aplicativo.
-Prioridade: Alta
+Nome: ............. -
+Descrição: ................
+Prioridade: ..........
 
   4. Requisito
 Nome: Pesquisa de Livros -
