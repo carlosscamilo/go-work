@@ -27,9 +27,9 @@ informações detalhadas sobre cada livro.</p>
 <strong>Prioridade:</strong> Alta</p>
 
 <h4>Requisito 3:</h4>
-<p><strong>Nome:</strong> ............. <br>
-<strong>Descrição:</strong> ............. <br>
-<strong>Prioridade:</strong> ..........</p>
+<p><strong>Nome:</strong> Lista de Livros Favoritos <br>
+<strong>Descrição:</strong> O aplicativo deverá permitir que os usuários adicionem livros à sua lista de favoritos. Os usuários poderão visualizar, editar ou remover livros dessa lista, facilitando o acesso a suas leituras preferidas. <br>
+<strong>Prioridade:</strong> Média</p>
 
 <h4>Requisito 4:</h4>
 <p><strong>Nome:</strong> Pesquisa de Livros <br>
