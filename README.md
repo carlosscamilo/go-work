@@ -52,6 +52,7 @@ informações detalhadas sobre cada livro.</p>
 <strong>Usabilidade:</strong> O aplicativo deverá ter uma interface simples e intuitiva, proporcionando uma boa experiência ao usuário. <br>
 <strong>Performance:</strong> O tempo de resposta do sistema para ações como login, cadastro de livros e pesquisa deverá ser mínimo, garantindo uma experiência fluida.</p>
 
-<p><strong>Figma:</strong> <a href="https://docs.google.com/document/d/1vCoKrn1uD4UfsjFTUHHR1D5KeeB37KLx60i6bt_OXDI/edit?usp=sharing">Link para o Figma</a></p>
+<p><strong>Figma:</strong> <a href="https://www.figma.com/design/BYCfQU6MonDQHw3THJKk69/Mobile?node-id=0-1&t=Mr4ptsejNgSO0g5m-1">Link para o Figma</a></p>
+<p><strong>Vídeo:</strong> <a href="">Link para o Vídeo</a></p>
 
 
