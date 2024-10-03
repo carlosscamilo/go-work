@@ -3,13 +3,20 @@ Documento de Requisitos
 
 03/10/2024
   
-  1. O Projeto 
-O aplicativo de acervo de livros permitirá que os usuários façam o cadastro, login e organizem seus livros em uma
-biblioteca pessoal. O sistema incluirá funcionalidades como cadastro de livros, pesquisa e visualização de
-informações detalhadas sobre cada livro, além
-da opção de iniciar a leitura e gerenciar o status de leitura.
+  A ideia do aplicativo "Ler+" é um acervo de livros onde o usuário pode se cadastrar, pesquisar por livros, 
+colocar em sua lista de interesse e marcar como lido, lendo, ou “quero começar a ler”. A API de livros 
+permite ao usuário ver dados e detalhes dos livros, além de direcioná-lo para a compra. Parecido com uma 
+“lista de lembrete”, a ideia é aproximar e organizar o usuário com sua rotina de leituras, ajudando também a 
+encontrar novos livros para ler no futuro.
 
-  3. Requisitos Funcionais
+
+  O Projeto 
+O aplicativo de acervo de livros permitirá que os usuários façam o cadastro, login e organizem seus 
+livros em uma biblioteca pessoal. O sistema incluirá funcionalidades como  pesquisa e visualização de 
+informações detalhadas sobre cada livro.
+
+
+  1. Requisitos Funcionais
 Requisito 1:
 Nome: Cadastro de Usuário -
 Descrição: O aplicativo deverá permitir que novos usuários criem uma conta fornecendo informações como nome, e-mail e senha.
@@ -33,14 +40,14 @@ Descrição: O aplicativo deverá oferecer uma funcionalidade de busca, onde o u
 autor ou gênero. A busca deverá ser rápida e eficiente, retornando os resultados em tempo real.
 Prioridade: Alta
 
-  6. Requisito
+  5. Requisito
 Nome: Visualização de Livros -
 Descrição: O aplicativo deverá permitir que os usuários visualizem os livros cadastrados em uma lista. As informações exibidas
 devem incluir o título e a classificação do livro. Também deverá haver uma opção para deletar livros do acervo diretamente na
 visualização.
 Prioridade: Média
 
-  8. Requisito
+  6. Requisito
 Nome: Detalhes e Leitura de Livro -
 Descrição: O aplicativo deverá permitir que, ao clicar em um livro, o usuário visualize os detalhes completos
 (título, autor, descrição, gênero, número de páginas) e gerencie o status de leitura (Lido, Em leitura, Pendente).
@@ -48,7 +55,7 @@ Além disso, o aplicativo deverá oferecer a opção de iniciar a leitura direta
 disponível em formato digital.
 Prioridade: Alta
 
-3. Requisitos Não Funcionais
+  3. Requisitos Não Funcionais
 Plataforma: O aplicativo será desenvolvido exclusivamente para Android, utilizando o Android Studio.
 Segurança: O sistema deverá garantir a segurança das informações pessoais dos usuários, utilizando métodos de autenticação e armazenamento seguro dos dados.
 Usabilidade: O aplicativo deverá ter uma interface simples e intuitiva, proporcionando uma boa experiência ao usuário.
