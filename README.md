@@ -55,4 +55,12 @@ informações detalhadas sobre cada livro.</p>
 <p><strong>Figma:</strong> <a href="https://www.figma.com/design/BYCfQU6MonDQHw3THJKk69/Mobile?node-id=0-1&t=Mr4ptsejNgSO0g5m-1">Link para o Figma</a></p>
 <p><strong>Vídeo:</strong> <a href="">Link para o Vídeo</a></p>
 
+<p><strong>Alunos:</strong></p>
+<p>Carlos Henrique Camilo Ramos</p>
+<p>Matheus Del Pino Cabral</p>
+<p>Mateus de Santana Nascimento</p>
+<p>David Alexandre Lima de Oliveira</p>
+<p>Carlos Fernando de Holanda Costa</p>
+<p>Luiz Henrique<p/>
+
 
