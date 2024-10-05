@@ -53,7 +53,7 @@ informações detalhadas sobre cada livro.</p>
 <strong>Performance:</strong> O tempo de resposta do sistema para ações como login, cadastro de livros e pesquisa deverá ser mínimo, garantindo uma experiência fluida.</p>
 
 <p><strong>Figma:</strong> <a href="https://www.figma.com/design/BYCfQU6MonDQHw3THJKk69/Mobile?node-id=0-1&t=Mr4ptsejNgSO0g5m-1">Link para o Figma</a></p>
-<p><strong>Vídeo:</strong> <a href="https://www.youtube.com/live/alD1dbvKv0s?si=CUIyBq1pHXIKKfZe">Link para o Vídeo</a></p>
+<p><strong>Vídeo:</strong> <a href="https://youtu.be/sHEYySXDSLI?si=wGOwEET-6QBaK7RL">Link para o Vídeo</a></p>
 
 <p><strong>Desenvolvedores:</strong></p>
 <p>Carlos Henrique Camilo Ramos</p>
