@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030466988584",
+    "project_id": "go-work-f2623",
+    "storage_bucket": "go-work-f2623.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030466988584:android:8fd2a0eeb3a636c078a31d",
+        "android_client_info": {
+          "package_name": "com.example.gowork"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDinXjsRw7q24ItPeLdnuJUkvOsbv3N_OQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
