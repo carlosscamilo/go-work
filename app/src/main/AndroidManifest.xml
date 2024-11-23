@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,16 +16,16 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Atividade de registro -->
+        </activity> <!-- Atividade de registro -->
         <activity
             android:name=".views.SignUpActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"/>
+        <activity
+            android:name=".views.LoginActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configurações de cliques nos botões
         binding.btnLogin.setOnClickListener {
-
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.btnRegister.setOnClickListener {
