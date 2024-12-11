@@ -63,4 +63,5 @@ informações detalhadas sobre cada livro.</p>
 <p>Carlos Fernando de Holanda Costa</p>
 <p>Luiz Henrique<p/>
 
-
+<h3>Link da API</h3>
+<p>https://openlibrary.org/developers/api</p>
