@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">go work</string>
+    <string name="categorias_de_busca">Categorias</string>
+    <string name="category_search_title">Categorias </string>
+    <string name="search_hint_name">Nome</string>
+    <string name="romance">Romance</string>
+    <string name="fiction">Ficção</string>
+    <string name="fantasy">Fantasia</string>
+    <string name="horror">Terror</string>
+    <string name="mystery">Mistério</string>
+    <string name="dystopia">Distopia</string>
+    <string name="anime">Anime</string>
+    <string name="home">Início</string>
+    <string name="library">Biblioteca</string>
+    <string name="profile">Perfil</string>
+    <string name="search">Pesquisar</string>
+</resources>

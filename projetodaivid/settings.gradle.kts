@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GoWork"
+rootProject.name = "goworkk"
 include(":app")
  

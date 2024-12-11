@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2E0D0"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/search_box"
+        android:layout_width="257dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:autofillHints="searchQuery"
+        android:background="@drawable/edittext_border"
+        android:hint="@string/search_hint_name"
+        android:importantForAccessibility="no"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#535B60"
+        android:textColorHint="#111111"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+
+    <ImageButton
+        android:id="@+id/button_search"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="176dp"
+        android:background="@null"
+        android:contentDescription="@string/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/search" />
+
+    <ImageButton
+        android:id="@+id/button_profile"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="68dp"
+        android:background="@null"
+        android:contentDescription="@string/profile"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/generic_avatar__5_" />
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:background="@null"
+        android:contentDescription="@string/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home" />
+
+
+
+    <TextView
+        android:id="@+id/category_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:importantForAccessibility="no"
+        android:text="@string/category_search_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_box" />
+
+    <Button
+        android:id="@+id/button_romance"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/romance"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_title" />
+
+    <Button
+        android:id="@+id/button_horror"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/horror"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_title" />
+
+    <Button
+        android:id="@+id/button_fantasy"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/fantasy"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_romance" />
+
+    <Button
+        android:id="@+id/button_dystopia"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/dystopia"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_horror" />
+
+    <Button
+        android:id="@+id/button_mystery"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/mystery"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_fantasy" />
+
+    <Button
+        android:id="@+id/button_fiction"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/fiction"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_dystopia" />
+
+    <Button
+        android:id="@+id/button_anime"
+        android:layout_width="117dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="212dp"
+        android:backgroundTint="#D9D9D9"
+        android:text="@string/anime"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
