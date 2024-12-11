@@ -28,17 +28,17 @@ class LoginActivity : AppCompatActivity() {
             loginUser()
         }
 
+        // Redirecionar para tela de cadastro
         binding.tvLoginRedirect.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
     }
 
     private fun loginUser() {
-        // Obter valores dos campos de entrada
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
 
-        // Limpar mensagem de erro
         binding.tvErrorMessage.visibility = View.GONE
 
         if (validateFields(email, password)) {
@@ -47,16 +47,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateFields(email: String, password: String): Boolean {
-        var fieldsValidated = true
+        var isValid = true
 
         if (email.isEmpty()) {
             binding.textInputLayoutEmail.error = "O campo email não pode estar vazio"
             binding.textInputLayoutEmail.errorIconDrawable = null
-            fieldsValidated = false // Define a variável como false se o email estiver vazio
+            isValid = false
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.textInputLayoutEmail.error = "Formato de e-mail inválido"
             binding.textInputLayoutEmail.errorIconDrawable = null
-            fieldsValidated = false // Define a variável como false se o email for inválido
+            isValid = false
         } else {
             binding.textInputLayoutEmail.error = null
         }
@@ -64,30 +64,26 @@ class LoginActivity : AppCompatActivity() {
         if (password.isEmpty()) {
             binding.textInputLayoutPassword.error = "O campo senha não pode estar vazio"
             binding.textInputLayoutPassword.errorIconDrawable = null
-            fieldsValidated = false // Define a variável como false se a senha estiver vazia
+            isValid = false
         } else {
             binding.textInputLayoutPassword.error = null
         }
 
-        return fieldsValidated
+        return isValid
     }
 
     private fun authenticateUser(email: String, password: String) {
-        // Mostrar indicador de carregamento (opcional)
         binding.btnLogin.isEnabled = false
         binding.btnLogin.text = "Carregando..."
 
-        // Autenticar com o Firebase
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            // Reativar o botão
             binding.btnLogin.isEnabled = true
             binding.btnLogin.text = "Login"
             if (task.isSuccessful) {
-                // Login bem-sucedido
-                startActivity(Intent(this, MainActivity::class.java))
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
                 finish()
             } else {
-                // Falha no login: mostrar mensagem no TextView
                 val errorMessage = "Credenciais inválidas! Verifique o email e a senha e tente novamente."
                 binding.tvErrorMessage.text = errorMessage
                 binding.tvErrorMessage.visibility = View.VISIBLE
