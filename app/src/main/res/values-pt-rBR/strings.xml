@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GoWork</string>
+    <string name="adc" />
+    <String name="save">Salvar</String>
+    <String name="adc">Acabaram De Chegar</String>
+</resources>

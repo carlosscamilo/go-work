@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:id="@+id/home"
     android:padding="16dp"
     android:background="@drawable/gradient_background_blue"
     xmlns:app="http://schemas.android.com/apk/res-auto"
