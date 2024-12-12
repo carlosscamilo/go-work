@@ -1,15 +1,16 @@
 package com.example.gowork.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gowork.R // Importar o R do seu projeto
+import com.example.gowork.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home) // Certifique-se de usar o nome correto do arquivo XML
+        setContentView(R.layout.activity_home)
 
         // Inicializar botões da barra inferior de navegação
         val homeButton = findViewById<Button>(R.id.homeButton)
@@ -18,27 +19,19 @@ class HomeActivity : AppCompatActivity() {
 
         // Configurar ações para os botões
         homeButton.setOnClickListener {
-            Toast.makeText(
-                this@HomeActivity,
-                "Home clicado!",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this, "Home clicado!", Toast.LENGTH_SHORT).show()
         }
 
         searchButton.setOnClickListener {
-            Toast.makeText(
-                this@HomeActivity,
-                "Buscar clicado!",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this, "Buscar clicado!", Toast.LENGTH_SHORT).show()
+
+            // Navegar para a tela de busca
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
         }
 
         profileButton.setOnClickListener {
-            Toast.makeText(
-                this@HomeActivity,
-                "Perfil clicado!",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this, "Perfil clicado!", Toast.LENGTH_SHORT).show()
         }
     }
 }
