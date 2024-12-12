@@ -1,7 +1,9 @@
 package com.example.gowork.views
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Patterns
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gowork.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -22,49 +24,83 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        val nameEditText = binding.etName
-        val emailEditText = binding.etEmail
-        val passwordEditText = binding.etPassword
-        val signInButton = binding.btnSignIn
-        val loginRedirectText = binding.tvLoginRedirect
+        binding.btnSignIn.setOnClickListener {
+            val name = binding.etName.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
 
-        signInButton.setOnClickListener {
-            val name = nameEditText.text.toString().trim()
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
-
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            if (validateFields(name, email, password)) {
+                authenticateUser(name, email, password)
             }
-
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val userId = auth.currentUser?.uid
-                        val user = hashMapOf(
-                            "name" to name,
-                            "email" to email
-                        )
-
-                        if (userId != null) {
-                            firestore.collection("users").document(userId)
-                                .set(user)
-                                .addOnSuccessListener {
-                                    Toast.makeText(this, "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(this, "Erro ao salvar usuário no Firestore", Toast.LENGTH_SHORT).show()
-                                }
-                        }
-                    } else {
-                        Toast.makeText(this, "Erro ao cadastrar usuário: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                    }
-                }
         }
 
-        loginRedirectText.setOnClickListener {
-            // Implementar ação para redirecionar para login (caso necessário)
+        // Redirecionar para tela de login
+        binding.tvLoginRedirect.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun validateFields(name: String, email: String, password: String): Boolean {
+        var isValid = true
+
+        if (name.isEmpty()) {
+            binding.textInputLayoutName.error = "O campo nome não pode estar vazio"
+            binding.textInputLayoutName.errorIconDrawable = null
+            isValid = false
+        } else {
+            binding.textInputLayoutName.error = null
+        }
+
+        if (email.isEmpty()) {
+            binding.textInputLayoutEmail.error = "O campo email não pode estar vazio"
+            binding.textInputLayoutEmail.errorIconDrawable = null
+            isValid = false
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.textInputLayoutEmail.error = "Formato de e-mail inválido"
+            binding.textInputLayoutEmail.errorIconDrawable = null
+            isValid = false
+        } else {
+            binding.textInputLayoutEmail.error = null
+        }
+
+        if (password.isEmpty()) {
+            binding.textInputLayoutPassword.error = "O campo senha não pode estar vazio"
+            binding.textInputLayoutPassword.errorIconDrawable = null
+            isValid = false
+        } else {
+            binding.textInputLayoutPassword.error = null
+        }
+
+        return isValid
+    }
+
+    private fun authenticateUser(name: String, email: String, password: String) {
+        binding.btnSignIn.isEnabled = false
+        binding.btnSignIn.text = "Carregando..."
+        binding.tvErrorMessage.visibility = View.GONE
+
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            binding.btnSignIn.isEnabled = true
+            binding.btnSignIn.text = "Sign In"
+
+            if (task.isSuccessful) {
+                val userId = auth.currentUser?.uid
+                val user = hashMapOf("name" to name, "email" to email)
+                if (userId != null) {
+                    firestore.collection("users").document(userId).set(user).addOnSuccessListener {
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }.addOnFailureListener {
+                        binding.tvErrorMessage.text = "Erro ao salvar usuário no Firestore"
+                        binding.tvErrorMessage.visibility = View.VISIBLE
+                    }
+                }
+            } else {
+                binding.tvErrorMessage.text = "Erro ao cadastrar usuário. Tente novamente."
+                binding.tvErrorMessage.visibility = View.VISIBLE
+            }
         }
     }
 }
