@@ -40,5 +40,9 @@
         <activity
             android:name=".views.SearchActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".views.PerfilActivity"
+            android:exported="false" />
     </application>
 </manifest>

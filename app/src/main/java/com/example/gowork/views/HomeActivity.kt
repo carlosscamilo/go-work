@@ -32,6 +32,8 @@ class HomeActivity : AppCompatActivity() {
 
         profileButton.setOnClickListener {
             Toast.makeText(this, "Perfil clicado!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
         }
     }
 }
