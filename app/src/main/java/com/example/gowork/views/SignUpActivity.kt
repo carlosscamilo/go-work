@@ -24,16 +24,10 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        val nameEditText = binding.etName
-        val emailEditText = binding.etEmail
-        val passwordEditText = binding.etPassword
-        val signInButton = binding.btnSignIn
-        val loginRedirectText = binding.tvLoginRedirect
-
-        signInButton.setOnClickListener {
-            val name = nameEditText.text.toString().trim()
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+        binding.btnSignIn.setOnClickListener {
+            val name = binding.etName.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
 
             if (!validateFields(name, email, password)) {
                 return@setOnClickListener
@@ -42,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
             authenticateUser(name, email, password)
         }
 
-        loginRedirectText.setOnClickListener {
+        binding.tvLoginRedirect.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
@@ -86,48 +80,40 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnSignIn.text = "Carregando..."
         binding.tvErrorMessage.visibility = View.GONE
 
-
-        auth.fetchSignInMethodsForEmail(email)
-            .addOnSuccessListener { result ->
-                if (!result.signInMethods.isNullOrEmpty()) {
-                    binding.tvErrorMessage.text = "Já existe uma conta com este email"
-                    binding.tvErrorMessage.visibility = View.VISIBLE
-                    binding.btnSignIn.isEnabled = true // Reativar botão
-                    binding.btnSignIn.text = "Sign In" // Restaurar texto do botão
-                } else {
-                    auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener { task ->
-                            binding.btnSignIn.isEnabled = true
-                            binding.btnSignIn.text = "Sign In"
-                            if (task.isSuccessful) {
-                                val userId = auth.currentUser?.uid
-                                val user = hashMapOf(
-                                    "name" to name, "email" to email
-                                )
-                                if (userId != null) {
-                                    firestore.collection("users").document(userId).set(user)
-                                        .addOnSuccessListener {
-                                            startActivity(Intent(this, MainActivity::class.java))
-                                            finish()
-                                        }.addOnFailureListener {
-                                            binding.tvErrorMessage.text =
-                                                "Erro ao salvar usuário no Firestore"
-                                            binding.tvErrorMessage.visibility = View.VISIBLE
-                                        }
-                                }
-                            } else {
-                                binding.tvErrorMessage.text = "O Email informado já está cadastrado no sistema"
-                                binding.tvErrorMessage.visibility = View.VISIBLE
-                            }
-                        }
-                }
-            }.addOnFailureListener { exception ->
-                // Tratar erro ao verificar email existente
-                binding.tvErrorMessage.text =
-                    "Erro ao verificar email existente: ${exception.message}"
+        auth.fetchSignInMethodsForEmail(email).addOnSuccessListener { result ->
+            if (!result.signInMethods.isNullOrEmpty()) {
+                binding.tvErrorMessage.text = "Já existe uma conta com este email"
                 binding.tvErrorMessage.visibility = View.VISIBLE
-                binding.btnSignIn.isEnabled = true // Reativar botão
-                binding.btnSignIn.text = "Sign In" // Restaurar texto do botão
+                binding.btnSignIn.isEnabled = true
+                binding.btnSignIn.text = "Sign In"
+            } else {
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    binding.btnSignIn.isEnabled = true
+                    binding.btnSignIn.text = "Sign In"
+                    if (task.isSuccessful) {
+                        val userId = auth.currentUser?.uid
+                        val user = hashMapOf("name" to name, "email" to email)
+                        if (userId != null) {
+                            firestore.collection("users").document(userId).set(user)
+                                .addOnSuccessListener {
+                                    startActivity(Intent(this, HomeActivity::class.java)) // Redireciona para HomeActivity
+                                    finish()
+                                }.addOnFailureListener {
+                                    binding.tvErrorMessage.text = "Erro ao salvar usuário no Firestore"
+                                    binding.tvErrorMessage.visibility = View.VISIBLE
+                                }
+                        }
+                    } else {
+                        binding.tvErrorMessage.text = "Erro ao criar conta"
+                        binding.tvErrorMessage.visibility = View.VISIBLE
+                    }
+                }
             }
+        }.addOnFailureListener { exception ->
+            binding.tvErrorMessage.text = "Erro: ${exception.message}"
+            binding.tvErrorMessage.visibility = View.VISIBLE
+            binding.btnSignIn.isEnabled = true
+            binding.btnSignIn.text = "Sign In"
+        }
     }
 }
