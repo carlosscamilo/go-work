@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GoWork</string>
+    <string name="search_hint">Buscar livros</string>
 </resources>

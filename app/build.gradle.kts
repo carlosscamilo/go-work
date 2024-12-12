@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1") // Certifique-se de usar uma versão compatível com o restante do projeto.
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0") // Use a versão mais recente
+
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))

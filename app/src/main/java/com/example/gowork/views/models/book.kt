@@ -1,8 +1,7 @@
-package com.example.gowork.models
+package com.example.gowork.views.models
 
 data class Book(
     val title: String,
-    val author: String?,
-    val coverUrl: String?,
-    val description: String?
+    val authors: String,
+    val description: String
 )

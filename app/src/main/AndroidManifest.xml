@@ -26,6 +26,9 @@
         <activity
             android:name=".views.LoginActivity"
             android:exported="false" />
+        <activity android:name=".views.CategoryActivity" />
+        <activity android:name=".views.SearchActivity" />
+
     </application>
 
 </manifest>
